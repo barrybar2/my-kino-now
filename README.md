@@ -2,6 +2,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Running the project
 
+### `npm install`
+Once the repository is cloned change to the my-kino-now directory. 
+Then run 'npm install' in the terminal / command line. 
+This will take a few minutes to retrieve all the dependencies 
+
 ### `npm start`
 
 Runs the app in the development mode.<br>

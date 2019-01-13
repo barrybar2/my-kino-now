@@ -117,11 +117,12 @@ class Movies extends Component {
             <div>
               <img src={`${this.state.imageAPI}${movie.backdrop_path}`} />
               <label>{movie.original_title}: </label>
-              {movie.genre_ids.map(id => (
-                <span class="badge badge-secondary">
-                  {this.getGenreTitle(id)}
-                </span>
-              ))}
+              {this.state.genresMaster.length > 0 &&
+                movie.genre_ids.map(id => (
+                  <span className="badge badge-secondary">
+                    {this.getGenreTitle(id)}
+                  </span>
+                ))}
             </div>
           ))}
       </main>
