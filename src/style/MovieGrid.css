@@ -1,16 +1,19 @@
-.container {
+.wrapper {
   display: grid;
   grid-template-areas:
     "header header header"
     "main main main";
 
-  grid-template-columns: 200px 1fr;
-  grid-template-rows: auto 1fr;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
   grid-gap: 10px;
+  margin: auto;
+  max-width: 1300px;
+  padding: 15px;
 }
 
 @media (min-width: 34em) {
-  .container {
+  .wrapper {
     grid-template-columns: 200px 1fr;
     grid-template-rows: auto 1fr;
     grid-template-areas:
@@ -23,13 +26,10 @@ header {
   grid-area: header;
 }
 
-filter {
-  grid-area: filter;
-}
-
-@media (min-width: 60em) {
+@media (min-width: 34em) {
   filter {
-    display: block;
+    grid-area: filter;
+    padding-left: 11px;
   }
 }
 
@@ -60,7 +60,19 @@ main div {
   cursor: pointer;
 }
 
+main .loading-movies {
+  height: 160px;
+  margin: 0 5px;
+  color: #bfb0b0;
+  text-align: center;
+  padding-top: 40px;
+}
+
 main img {
   width: 100%;
   border: 5px solid #fff;
+}
+
+main .badge {
+  margin-left: 2px;
 }

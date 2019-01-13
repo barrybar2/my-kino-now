@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import "../Faceted.css";
+import "../style/MovieGenres.css";
 
 class Faceted extends Component {
   constructor(props) {
@@ -21,7 +21,8 @@ class Faceted extends Component {
     let selectedGenres = this.state.selectedGenres;
     selectedGenres = this.updateGenreArr(e.target, selectedGenres);
     this.setState({ selectedGenres: selectedGenres });
-    this.props.callbackFromParent(selectedGenres);
+    // passes selected genres to App.js
+    this.props.filterCallbackfromParent(selectedGenres);
   }
 
   // if the genre is being checked add to array, otherwise remove
@@ -29,30 +30,36 @@ class Faceted extends Component {
     if (target.checked) {
       return selectedGenres.concat(target.value);
     } else {
-      var index = selectedGenres.indexOf(target.value);
+      //remove from array if unchecking an option
+      const index = selectedGenres.indexOf(target.value);
       selectedGenres.splice(index, 1);
       return selectedGenres;
     }
   }
-
+  // Get the available genres from the API
+  // Return the genres back to App.js
+  // update the genre list for the UI
   async componentDidMount() {
     const genres = (await axios.get(this.state.APIUrl + this.state.TMDBKey))
       .data;
+    this.props.callbackFromParent(genres);
     this.setState({ genres: genres.genres });
   }
   render() {
     return (
       <React.Fragment>
+        <h4>Genres</h4>
         {this.state.genres === null && <p>Loading Genres...</p>}
         {this.state.genres &&
           this.state.genres.map(genre => (
-            <div>
+            <div className="form-check">
               <input
+                className="form-check-input"
                 type="checkbox"
                 value={genre.id}
                 onChange={this.filterByGenre}
               />
-              {genre.name}
+              <label className="form-check-label">{genre.name}</label>
             </div>
           ))}
       </React.Fragment>
