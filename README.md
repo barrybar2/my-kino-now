@@ -1,11 +1,17 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## I want to see it right now!
+
+Demo [here](https://barrybar2-my-kino-now.glitch.me/) <br>
+Uploaded using [Glitch](https://glitch.com/)
+
 ## Running the project
 
 ### `npm install`
-Once the repository is cloned change to the my-kino-now directory. 
-Then run 'npm install' in the terminal / command line. 
-This will take a few minutes to retrieve all the dependencies 
+
+Once the repository is cloned change to the my-kino-now directory.
+Then run 'npm install' in the terminal / command line.
+This will take a few minutes to retrieve all the dependencies
 
 ### `npm start`
 
